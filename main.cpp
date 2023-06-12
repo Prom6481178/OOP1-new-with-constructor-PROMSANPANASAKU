@@ -1,41 +1,78 @@
 #include <iostream>
 using namespace std;
+#include "thanos.h"
+#include "monster.h"
 
-#include "student.h"
+int main(int argc, char* argv[]) {
+  monster *p=new monster("Superman",50, 50);
+  monster A("Batman",40,60);
+  A.print();
+  p->print();
 
-int main() {
-/*  student s1,s2;
+  Thanos T;
+  int n;
+  //cout<<"How many monsters? ";
+  //cin>>n;
 
- // s1.name="PUN";  // ERROR, it is in private
-    s1.set_name("Pun");  	s1.set_age(20); 
-		s2.set_name("Joe");
-		s2.set_age(27); 
-		
-    s1.get_age()>s2.get_age() ?
-    s1.print_name(): s2.print_name(); 
-   if( s1.get_age()>s2.get_age() )
-     s1.print_name();
-       else  s2.print_name(); 
-      cout <<"is older"<<endl;
-*/
-     student Cst[10],*p;
-     int i;
-     string n;
-     for(i=0;i<3;i++){
-         cout<<"What is your name?";
-         cin>>n;
-         Cst[i].set_name(n);
-     }
-    for(i=0;i<3;i++){
-       
-         Cst[i].print_name();
-     }
-    cout<<endl;
-    cout<<"Pointer"<<endl;
-    p=&Cst[2];
-    (*p).print_name();
-    p->print_name();
-    (p-1)->print_name();
+  monster *m=new monster[2]; //make sure they have hp
+
+  
+  /* Add some story*/
+  cout<<endl;
+  ++T;
+  A.attack(*p);
+  T.snap_finger(m,n);
+  cout<<endl;
+  A.print();
+  p->print();
+  cout<<endl;
+  ++T;
+  p->healing();
+  T.snap_finger(m,n);
+  cout<<endl;
+  A.print();
+  p->print();
+  cout<<endl;
+  ++T;
+  p->attack(A);
+  T.snap_finger(m,n);
+  cout<<endl;
+  A.print();
+  p->print();
+  cout<<endl;
+  ++T;
+  A.healing();
+  T.snap_finger(m,n);
+  cout<<endl;
+  A.print();
+  p->print();
+  cout<<endl;
+  ++T;
+  p->ultimate(A);
+  T.snap_finger(m,n);
+  cout<<endl;
+  A.print();
+  p->print();
+  cout<<endl;
+  A.ultimate(*p);
+  T.snap_finger(m,n);
+  cout<<endl;
+  A.print();
+  p->print();
+  cout<<endl;
+  ++T;
+  T.snap_finger(m,n);
+  p->print();
+  cout<<endl;
+  A.kill();
+  int i;
+  for(i=0;i<n;i++)
+      m[i].print();
+  
+
+  delete [] m;
+
 }
 
-//CST --> Joe  Jim Jan*
+  
+  
